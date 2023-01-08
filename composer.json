@@ -1,0 +1,39 @@
+{
+  "name": "piotrpress/wordpress-sandbox",
+  "type": "project",
+  "license": "MIT",
+  "description": "This library is WordPress Docker setup which uses SQLite database and PHP built-in web server.",
+  "homepage": "https://github.com/PiotrPress/wordpress-sandbox",
+  "authors": [
+    {
+      "name": "Piotr Niewiadomski",
+      "homepage": "https://piotr.press"
+    }
+  ],
+  "keywords": [ "wordpress", "sandbox", "blog", "cms", "docker", "sqlite", "php", "php built-in web server", "web server", "server" ],
+  "require": {
+    "wordpress-core/no-content": "*",
+    "wordpress-plugin/akismet": "*",
+    "wordpress-theme/twentytwentythree": "*",
+    "aaemnnosttv/wp-sqlite-db": "^1.2",
+    "piotrpress/configer": "^1.0",
+    "piotrpress/wordpress-config": "^1.0",
+    "piotrpress/wordpress-router": "^1.0",
+    "piotrpress/wordpress-installer": "^1.0"
+  },
+  "config": {
+    "allow-plugins": {
+      "composer/installers": false,
+      "piotrpress/wordpress-installer": true
+    }
+  },
+  "scripts": {
+    "post-update-cmd": [
+      "cp vendor/piotrpress/wordpress-config/res/wp-config.php wp-config.php",
+      "cp -n vendor/piotrpress/wordpress-config/res/.config .config",
+      "ln -nfs wp-sqlite-db/src/db.php wp-content/db.php",
+      "ln -nfs ../wp-content wp-core/wp-content",
+      "@php install.php"
+    ]
+  }
+}

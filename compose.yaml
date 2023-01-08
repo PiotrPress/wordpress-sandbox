@@ -1,0 +1,7 @@
+services:
+  wordpress-sandbox:
+    build: .
+    ports:
+      - 80:80
+    volumes:
+      - .:/usr/src/wordpress

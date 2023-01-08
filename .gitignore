@@ -1,0 +1,5 @@
+/.config
+/wp-config.php
+/vendor
+/wp-core
+/wp-content
