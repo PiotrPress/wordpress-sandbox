@@ -13,7 +13,7 @@ $ docker compose build --pull --no-cache
 ### Run
 
 ```shell
-$ docker compose up 
+$ docker compose up -d
 ```
 
 ### View

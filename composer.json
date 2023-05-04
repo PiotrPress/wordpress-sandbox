@@ -11,27 +11,37 @@
     }
   ],
   "keywords": [ "wordpress", "sandbox", "blog", "cms", "docker", "sqlite", "php", "php built-in web server", "web server", "server" ],
+  "repositories": [
+    {
+      "type": "package",
+      "package": {
+        "name": "wordpress-plugin/sqlite-database-integration",
+        "type": "wordpress-plugin",
+        "version": "2.0.0",
+        "dist": {
+          "url": "https://api.github.com/repos/WordPress/sqlite-database-integration/zipball/fdc1417909552c3cba58e2c3b7f5a60e0349410e",
+          "type": "zip"
+        }
+      }
+    }
+  ],
   "require": {
     "wordpress-core/no-content": "*",
-    "wordpress-plugin/akismet": "*",
     "wordpress-theme/twentytwentythree": "*",
-    "aaemnnosttv/wp-sqlite-db": "^1.2",
-    "piotrpress/configer": "^1.0",
-    "piotrpress/wordpress-config": "^1.0",
+    "wordpress-plugin/sqlite-database-integration": "2.0.0",
+    "piotrpress/wordpress-config": "^3.0",
     "piotrpress/wordpress-router": "^1.0",
     "piotrpress/wordpress-installer": "^1.0"
   },
   "config": {
     "allow-plugins": {
-      "composer/installers": false,
       "piotrpress/wordpress-installer": true
     }
   },
   "scripts": {
     "post-update-cmd": [
       "cp vendor/piotrpress/wordpress-config/res/wp-config.php wp-config.php",
-      "cp -n vendor/piotrpress/wordpress-config/res/.config .config",
-      "ln -nfs wp-sqlite-db/src/db.php wp-content/db.php",
+      "cp wp-content/plugins/sqlite-database-integration/db.copy wp-content/db.php",
       "ln -nfs ../wp-content wp-core/wp-content",
       "@php install.php"
     ]

@@ -3,6 +3,7 @@ FROM php:8.0-cli-alpine
 COPY . /usr/src/wordpress
 WORKDIR /usr/src/wordpress
 
+RUN docker-php-ext-install mysqli
 RUN apk --update-cache add sqlite
 RUN rm -rf /var/cache/apk/*
 
