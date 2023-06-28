@@ -11,24 +11,10 @@
     }
   ],
   "keywords": [ "wordpress", "sandbox", "blog", "cms", "docker", "sqlite", "php", "php built-in web server", "web server", "server" ],
-  "repositories": [
-    {
-      "type": "package",
-      "package": {
-        "name": "wordpress-plugin/sqlite-database-integration",
-        "type": "wordpress-plugin",
-        "version": "2.0.0",
-        "dist": {
-          "url": "https://api.github.com/repos/WordPress/sqlite-database-integration/zipball/fdc1417909552c3cba58e2c3b7f5a60e0349410e",
-          "type": "zip"
-        }
-      }
-    }
-  ],
   "require": {
     "wordpress-core/no-content": "*",
     "wordpress-theme/twentytwentythree": "*",
-    "wordpress-plugin/sqlite-database-integration": "2.0.0",
+    "wordpress-plugin/sqlite-database-integration": "^2.0",
     "piotrpress/wordpress-config": "^3.0",
     "piotrpress/wordpress-router": "^1.0",
     "piotrpress/wordpress-installer": "^1.0"
